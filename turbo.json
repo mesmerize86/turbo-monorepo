@@ -2,14 +2,35 @@
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
     "build": {
+      // ^build means build must be run in dependencies
+      // before it can be run in this workspace
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**"]
     },
     "lint": {
       "outputs": []
     },
+    "test": {
+      "outputs": [],
+      // A workspace's `test` task should only be rerun when
+      // either a `.tsx` or `.ts` file has changed.
+      "inputs": ["src/**/*.tsx", "src/**/*.ts"]
+    },
+    // override settings for the "build" task for the "web" app
+    "web:build": {
+      "dependsOn": ["^build"],
+      "outputs": [".next/**"]
+    },
+    "web:lint": {
+      "outputs": []
+    },
+
+    //dev runs a persistent dev server and produces no outputs, so caching it makes no sense
     "dev": {
       "cache": false
     }
-  }
+  },
+  "globalEnv": [
+    "GITHUB_TOKEN" // env var that will impact the hashes of all tasks,
+  ]
 }

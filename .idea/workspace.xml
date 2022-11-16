@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b847293b-e7f6-4a83-8be9-cc8e0c6ff268" name="Changes" comment="" />
+    <list default="true" id="b847293b-e7f6-4a83-8be9-cc8e0c6ff268" name="Changes" comment="web fix">
+      <change beforePath="$PROJECT_DIR$/apps/docs/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/docs/pages/index.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,12 +25,17 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "WebServerToolWindowFactoryState": "false",
+    "js.linters.configure.manually.selectedeslint": "true",
     "last_opened_file_path": "/Users/kishormaharjan/Documents/turbo-monorepo",
     "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
     "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
     "nodejs_package_manager_path": "npm",
     "prettierjs.PrettierConfiguration.Package": "/Users/kishormaharjan/Documents/turbo-monorepo/node_modules/prettier",
+    "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
     "ts.external.directory.path": "/Users/kishormaharjan/Documents/turbo-monorepo/packages/eslint-config-custom/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -41,8 +48,30 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1668582795723</updated>
-      <workItem from="1668582797356" duration="1112000" />
+      <workItem from="1668582797356" duration="8450000" />
     </task>
+    <task id="LOCAL-00001" summary="lint github workflow">
+      <created>1668634073242</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1668634073242</updated>
+    </task>
+    <task id="LOCAL-00002" summary="lint github workflow">
+      <created>1668634327592</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1668634327592</updated>
+    </task>
+    <task id="LOCAL-00003" summary="web fix">
+      <created>1668634411169</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1668634411169</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -58,5 +87,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="lint github workflow" />
+    <MESSAGE value="web fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="web fix" />
   </component>
 </project>
