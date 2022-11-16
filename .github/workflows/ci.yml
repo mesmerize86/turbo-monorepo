@@ -1,7 +1,10 @@
 
-name: Turbo Monorepo CI
+name: Web CI
 on:
   pull_request:
+    paths:
+          - 'apps/web/**'
+          - '.github/workflows/**'
     types: [opened, synchronize, reopened]
 permissions:
   contents: read
