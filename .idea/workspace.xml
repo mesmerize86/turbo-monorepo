@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b847293b-e7f6-4a83-8be9-cc8e0c6ff268" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/web/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/web/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/eslint-config-custom/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/eslint-config-custom/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turbo.json" beforeDir="false" afterPath="$PROJECT_DIR$/turbo.json" afterDir="false" />
+    <list default="true" id="b847293b-e7f6-4a83-8be9-cc8e0c6ff268" name="Changes" comment="web only workflow">
+      <change beforePath="$PROJECT_DIR$/apps/docs/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/docs/pages/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +25,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "WebServerToolWindowFactoryState": "false",
     "js.linters.configure.manually.selectedeslint": "true",
     "last_opened_file_path": "/Users/kishormaharjan/Documents/turbo-monorepo",
@@ -52,6 +49,14 @@
       <updated>1668582795723</updated>
       <workItem from="1668582797356" duration="1112000" />
     </task>
+    <task id="LOCAL-00001" summary="web only workflow">
+      <created>1668634947556</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1668634947556</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -67,5 +72,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="web only workflow" />
+    <option name="LAST_COMMIT_MESSAGE" value="web only workflow" />
   </component>
 </project>
