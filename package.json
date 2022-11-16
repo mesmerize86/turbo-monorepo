@@ -10,6 +10,7 @@
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
+    "web:lint": "pnpm run lint --filter web",
     "web": "pnpm run dev --filter web",
     "docs": "pnpm run dev --filter docs",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
