@@ -13,6 +13,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "web:lint": "pnpm run lint --filter web",
     "web": "pnpm run dev --filter web",
+    "docs:lint": "pnpm run lint --filter doc",
     "docs": "pnpm run dev --filter docs"
   },
   "devDependencies": {
