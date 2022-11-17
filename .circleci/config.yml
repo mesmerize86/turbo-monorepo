@@ -1,21 +1,13 @@
-  version: 2.1
+version: 2.1
 
-  jobs:
-    build:
-      working_directory: ~/circleci-monorepo
-      docker:
-        - image: "circleci/node:16.17.0"
-      steps:
-        - checkout
-      name: Install Dependencies
-      command: yarn install
-
-
-  workflows:
-    build_and_test:
-      jobs:
-        - build
-        - test:
-            requires:
-              - build
+jobs:
+  build:
+    working_directory: ~/circleci-monorepo
+    docker:
+      - image: "circleci/node:16.17.0"
+    steps:
+      - checkout
+      - run:
+        name: Install Dependencies
+        command: pnpm install
 
