@@ -2,9 +2,8 @@ version: 2.1
 
 jobs:
   sample:
-    working_directory: ~/circleci-monorepo
     docker:
-      - image: "circleci/node:16.17.0"
+      - image: cimg/node:15.1
     steps:
       - checkout
       - run:
@@ -12,7 +11,7 @@ jobs:
         command: pnpm install
 
 workflows:
-  test:
+  orb-free-workflow:
     jobs:
       - sample
 
