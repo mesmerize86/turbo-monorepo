@@ -13,9 +13,9 @@ jobs:
     steps:
       - checkout
       - node/install:
-          install-yarn: true
           node-version: '16.17.0'
-      - run: yarn lint
+      - run: npm install -g pnpm
+      - run : pnpm install
 
 workflows:
   sample:
