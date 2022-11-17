@@ -7,12 +7,9 @@ parameters:
   trigger:
     type: boolean
     default: true
-  web:
-    type: boolean
-    default: false
 
 jobs:
-  dev_CI:
+  dev-lint:
     docker:
       - image: cimg/node:16.10
     steps:
@@ -28,10 +25,7 @@ jobs:
 
 workflows:
   version: 2
-  dev_CI:
-    when: <<pipeline.parameters.web>>
+  web-dev:
     jobs:
-      - dev-lint:
-          name: web-lint
-          package_name: web
+      - dev-lint
 
