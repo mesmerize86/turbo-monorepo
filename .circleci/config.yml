@@ -16,7 +16,7 @@ jobs:
           pkg-manager: pnpm
 
 workflows:
-  orb-free-workflow:
+  sample:
     jobs:
       - sample
 
