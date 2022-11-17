@@ -1,5 +1,5 @@
 
-name: Web CI
+name: Web Dev CI
 on:
   pull_request:
     paths:
@@ -10,13 +10,13 @@ permissions:
   contents: read
   checks:   write
 jobs:
-  DEV_CI:
+  Web_CI:
     name: Running linting and Unit testing
     timeout-minutes: 15
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [ 16 ]
+        version: [16.x]
 
     steps:
       - uses: actions/checkout@v3
@@ -28,9 +28,9 @@ jobs:
         with:
           node-version: ${{ matrix.node}}
 
-      - uses: pnpm/action-setup@v2.0.1
+      - uses: pnpm/action-setup@v2.2.4
         with:
-          version: 6.32.2
+          version: 7.16.1
           
       - name: Install dependencies
         run: pnpm install
