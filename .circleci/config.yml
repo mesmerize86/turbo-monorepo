@@ -1,7 +1,7 @@
 version: 2.1
 
 jobs:
-  build:
+  sample:
     working_directory: ~/circleci-monorepo
     docker:
       - image: "circleci/node:16.17.0"
@@ -10,4 +10,9 @@ jobs:
       - run:
         name: Install Dependencies
         command: pnpm install
+
+workflows:
+  test:
+    jobs:
+      - sample
 
