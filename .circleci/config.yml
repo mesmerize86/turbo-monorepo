@@ -24,17 +24,17 @@ jobs:
       - run:
           name: Trigger workflows
           command: chmod +x .circleci/circle_trigger.sh && .circleci/circle_trigger.sh
-    lint:
+    build:
       parameters:
         package_name:
           type: string
 
       executor: node
-      working_directory: ~/project/apps/<< parameters.package_name >>
+      working_directory: ~/apps/<< parameters.package_name >>
 
       steps:
         - checkout:
-            path: ~/project
+            path: '../'
         # This step is added only to show that we are in the package directory
         - run:
             name: Content
@@ -58,7 +58,7 @@ workflows:
   dev_CI:
     when: <<pipeline.parameters.web>>
     jobs:
-      - lint:
+      - build:
           name: web-lint
           package_name: web
 
