@@ -11,54 +11,27 @@ parameters:
     type: boolean
     default: false
 
-executors:
-  node:
-    docker:
-      - image: circleci/node
-
 jobs:
-  trigger-workflows:
-    executor: node
+  dev_CI:
+    docker:
+      - image: cimg/node:16.10
     steps:
       - checkout
       - run:
           name: Trigger workflows
-          command: chmod +x .circleci/circle_trigger.sh && .circleci/circle_trigger.sh
-    build:
-      parameters:
-        package_name:
-          type: string
-
-      executor: node
-      working_directory: ~/apps/<< parameters.package_name >>
-
-      steps:
-        - checkout:
-            path: '../'
-        # This step is added only to show that we are in the package directory
-        - run:
-            name: Content
-            command: |
-              cat README.md 
-              echo "<< parameters.package_name >> built." > build.txt
-
-#    steps:
-#      - checkout
-#      - run:
-#          name: Trigger workflows
-#          command: chmod +x ./circle_trigger.sh && ./circle_trigger.sh
-#      - node/install:
-#          node-version: '16.17.0'
-#      - run: npm install -g pnpm
-#      - run : pnpm install
-#      - run : pnpm web:lint
+          command: chmod +x ./circle_trigger.sh && ./circle_trigger.sh
+      - node/install:
+          node-version: '16.17.0'
+      - run: npm install -g pnpm
+      - run : pnpm install
+      - run : pnpm web:lint
 
 workflows:
   version: 2
   dev_CI:
     when: <<pipeline.parameters.web>>
     jobs:
-      - build:
+      - dev-lint:
           name: web-lint
           package_name: web
 
