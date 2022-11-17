@@ -1,0 +1,22 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@4.7
+
+jobs:
+  dev-lint:
+    docker:
+      - image: cimg/node:16.10
+    steps:
+      - checkout
+      - node/install:
+          node-version: '16.17.0'
+      - run: npm install -g pnpm
+      - run : pnpm install
+      - run : pnpm web:lint
+
+workflows:
+  web-dev:
+    jobs:
+      - dev-lint
+
