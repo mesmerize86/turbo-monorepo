@@ -3,12 +3,24 @@ version: 2.1
 orbs:
   node: circleci/node@4.7
 
+parameters:
+  trigger:
+    type: boolean
+    default: true
+  web:
+    type: boolean
+    default: false
+
 jobs:
-  dev-lint:
+  dev_CI:
     docker:
       - image: cimg/node:16.10
+        working_directory: ~/project/packages/<< parameters.package_name >>
     steps:
       - checkout
+      - run:
+          name: Trigger workflows
+          command: chmod +x ./circle_trigger.sh && ./circle_trigger.sh
       - node/install:
           node-version: '16.17.0'
       - run: npm install -g pnpm
@@ -16,7 +28,11 @@ jobs:
       - run : pnpm web:lint
 
 workflows:
-  web-dev:
+  version: 2
+  dev_CI:
+    when: <<pipeline.parameters.web>>
     jobs:
-      - dev-lint
+      - dev-lint:
+          name: web-lint
+          package_name: web
 
