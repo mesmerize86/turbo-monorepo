@@ -14,10 +14,19 @@ jobs:
     name: Running linting and Unit testing
     timeout-minutes: 15
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [ 16 ]
+
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 2  # Shallow clones should be disabled for a better relevancy of analysis
+
+      - name: Setup node version
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node}}
 
       - uses: pnpm/action-setup@v2.0.1
         with:
