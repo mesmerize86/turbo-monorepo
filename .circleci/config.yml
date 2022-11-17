@@ -1,12 +1,10 @@
 version: 2.1
 
 orbs:
+  # The Node.js orb contains a set of prepackaged CircleCI configuration you can utilize
+  # Orbs reduce the amount of configuration required for common tasks.
+  # See the orb documentation here: https://circleci.com/developer/orbs/orb/circleci/node
   node: circleci/node@4.7
-
-parameters:
-  trigger:
-    type: boolean
-    default: true
 
 jobs:
   dev-lint:
@@ -14,9 +12,6 @@ jobs:
       - image: cimg/node:16.10
     steps:
       - checkout
-      - run:
-          name: Trigger workflows
-          command: chmod +x ./circle_trigger.sh && ./circle_trigger.sh
       - node/install:
           node-version: '16.17.0'
       - run: npm install -g pnpm
@@ -24,7 +19,6 @@ jobs:
       - run : pnpm web:lint
 
 workflows:
-  version: 2
   web-dev:
     jobs:
       - dev-lint
