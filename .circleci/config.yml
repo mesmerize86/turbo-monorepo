@@ -3,7 +3,7 @@ version: 2.1
 orbs:
   node: circleci/node@4.7
 
-workflows:
+jobs:
   sample:
     working_directory: ~/repo
     docker:
