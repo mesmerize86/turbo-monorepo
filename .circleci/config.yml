@@ -8,7 +8,7 @@
       steps:
         - checkout
       name: Install Dependencies
-      command: pnpm install
+      command: yarn install
 
 
   workflows:
