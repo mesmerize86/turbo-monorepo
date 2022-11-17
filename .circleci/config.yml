@@ -8,16 +8,4 @@ workflows:
     working_directory: ~/repo
     docker:
         - image: circleci/node:16.17.0
-    jobs:
-      steps:
-        - checkout
-        - run:
-            name: Install Dependencies
-            command: pnpm install
-        - save_cache:
-            key: dependency-cache-{{ checksum "package-lock.json" }}
-            paths:
-              - ./node_moduels
-        - run:
-            name: Install Dependencies
-            command: npm install
+
