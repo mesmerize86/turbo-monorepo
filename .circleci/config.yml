@@ -19,6 +19,5 @@ workflows:
             paths:
               - ./node_moduels
         - run:
-            name: Running Lint
-            command: pnpm web:lint
-
+            name: Install Dependencies
+            command: npm install
