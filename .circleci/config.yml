@@ -1,11 +1,19 @@
 version: 2.1
 
+orbs:
+  # The Node.js orb contains a set of prepackaged CircleCI configuration you can utilize
+  # Orbs reduce the amount of configuration required for common tasks.
+  # See the orb documentation here: https://circleci.com/developer/orbs/orb/circleci/node
+  node: circleci/node@4.7
+
 jobs:
   sample:
     docker:
-      - image: cimg/node:15.1
+      - image: cimg/node:16.10
     steps:
       - checkout
+      - node/install-packages:
+          pkg-manager: pnpm
 
 workflows:
   orb-free-workflow:
