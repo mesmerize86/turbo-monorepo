@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b847293b-e7f6-4a83-8be9-cc8e0c6ff268" name="Changes" comment="docs only workflow">
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.circleci/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.circleci/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +36,7 @@
     "node.js.selected.package.standard": "",
     "nodejs_package_manager_path": "npm",
     "prettierjs.PrettierConfiguration.Package": "/Users/kishormaharjan/Documents/turbo-monorepo/node_modules/prettier",
-    "ts.external.directory.path": "/Users/kishormaharjan/Documents/turbo-monorepo/packages/eslint-config-custom/node_modules/typescript/lib",
+    "ts.external.directory.path": "/Users/kishormaharjan/Documents/turbo-monorepo/apps/web/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -97,6 +98,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="web only workflow" />
     <MESSAGE value="docs only workflow" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs only workflow" />
+    <MESSAGE value="setup circle ci config" />
+    <option name="LAST_COMMIT_MESSAGE" value="setup circle ci config" />
   </component>
 </project>
