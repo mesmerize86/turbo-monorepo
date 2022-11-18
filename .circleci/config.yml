@@ -8,6 +8,7 @@ orbs:
 
 jobs:
   build:
+    working_directory: ~/turbo-monorepo
     docker:
       - image: cimg/node:16.10
     steps:
@@ -27,6 +28,7 @@ jobs:
           paths:
             - .
   test:
+    working_directory: ~/turbo-monorepo
     docker:
       - image: cimg/node:16.10
     steps:
@@ -39,6 +41,7 @@ jobs:
       - run : pnpm install
       - run : pnpm web:lint
   deploy:
+    working_directory: ~/turbo-monorepo
     docker:
       - image: cimg/node:16.10
     steps:
