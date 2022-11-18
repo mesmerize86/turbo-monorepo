@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b847293b-e7f6-4a83-8be9-cc8e0c6ff268" name="Changes" comment="update ci">
-      <change afterPath="$PROJECT_DIR$/DockerFile" afterDir="false" />
+    <list default="true" id="b847293b-e7f6-4a83-8be9-cc8e0c6ff268" name="Changes" comment="setup docker">
       <change beforePath="$PROJECT_DIR$/.circleci/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.circleci/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/docs/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/docs/pages/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -344,7 +341,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668724324469</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="setup docker">
+      <created>1668736906587</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1668736906587</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -367,6 +371,7 @@
     <MESSAGE value="setup circle ci config" />
     <MESSAGE value="circlci workspace" />
     <MESSAGE value="update ci" />
-    <option name="LAST_COMMIT_MESSAGE" value="update ci" />
+    <MESSAGE value="setup docker" />
+    <option name="LAST_COMMIT_MESSAGE" value="setup docker" />
   </component>
 </project>
