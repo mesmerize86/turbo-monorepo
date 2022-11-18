@@ -46,7 +46,7 @@ jobs:
       - attach_workspace:
           at: .
       - checkout
-      - run aws s3 sync ./turbo-monorepo/build s3://mesmerize-web-dev-artifacts
+      - run: aws s3 sync ./turbo-monorepo/build s3://mesmerize-web-dev-artifacts
 
 workflows:
   build_test_deploy:
