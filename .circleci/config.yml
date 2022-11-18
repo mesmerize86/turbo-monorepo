@@ -24,9 +24,9 @@ jobs:
       - run: pnpm install
       - run: pnpm build
       - persist_to_workspace:
-          root: ./turbo-monorepo
+          root: .
           paths:
-            - ./turbo-monorepo
+            - .
   test:
     working_directory: ~/turbo-monorepo
     docker:
