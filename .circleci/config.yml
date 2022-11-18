@@ -35,11 +35,8 @@ jobs:
       - attach_workspace:
           at: .
       - checkout
-      - node/install:
-          node-version: '16.17.0'
-      - run: npm install -g pnpm
-      - run : pnpm install
       - run : pnpm web:lint
+
   deploy:
     working_directory: ~/turbo-monorepo
     docker:
@@ -49,7 +46,7 @@ jobs:
           at: .
       - checkout
       - run aws s3 sync ./turbo-monorepo/build s3://mesmerize-web-dev-artifacts
-      -
+
 workflows:
   build_test_deploy:
     jobs:
