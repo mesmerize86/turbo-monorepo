@@ -54,13 +54,6 @@
       <updated>1668582795723</updated>
       <workItem from="1668582797356" duration="1112000" />
     </task>
-    <task id="LOCAL-00001" summary="web only workflow">
-      <created>1668634947556</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1668634947556</updated>
-    </task>
     <task id="LOCAL-00002" summary="web only workflow">
       <created>1668635040066</created>
       <option name="number" value="00002" />
@@ -390,7 +383,21 @@
       <option name="project" value="LOCAL" />
       <updated>1668737586832</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="setup docker">
+      <created>1668737653336</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1668737653336</updated>
+    </task>
+    <task id="LOCAL-00050" summary="setup docker">
+      <created>1668737724026</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1668737724026</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
