@@ -32,8 +32,8 @@ jobs:
     docker:
       - image: cimg/node:16.10
     steps:
-      - attach_workspace:
-          at: .
+#      - attach_workspace:
+#          at: .
       - checkout
       - node/install:
           node-version: '16.17.0'

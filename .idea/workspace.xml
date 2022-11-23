@@ -59,14 +59,7 @@
       <workItem from="1668990641816" duration="1438000" />
       <workItem from="1668998628836" duration="4799000" />
       <workItem from="1669163194428" duration="2622000" />
-      <workItem from="1669180335482" duration="1355000" />
-    </task>
-    <task id="LOCAL-00006" summary="setup circle ci config">
-      <created>1668685689453</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1668685689453</updated>
+      <workItem from="1669180335482" duration="1413000" />
     </task>
     <task id="LOCAL-00007" summary="setup circle ci config">
       <created>1668685727386</created>
@@ -404,7 +397,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669186847784</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="setup docker">
+      <created>1669186874259</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1669186874259</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
