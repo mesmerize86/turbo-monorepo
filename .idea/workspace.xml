@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b847293b-e7f6-4a83-8be9-cc8e0c6ff268" name="Changes" comment="update ci">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/ci.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="b847293b-e7f6-4a83-8be9-cc8e0c6ff268" name="Changes" comment="setup docker">
+      <change beforePath="$PROJECT_DIR$/.circleci/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.circleci/config.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,7 +12,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="setup-circleci" />
+        <entry key="$PROJECT_DIR$" value="node-setup" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -41,7 +40,7 @@
     &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/kishormaharjan/Documents/turbo-monorepo/node_modules/prettier&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/kishormaharjan/Documents/turbo-monorepo/apps/web/node_modules/typescript/lib&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/kishormaharjan/Documents/turbo-monorepo/packages/eslint-config-custom/node_modules/typescript/lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -54,48 +53,13 @@
       <option name="presentableId" value="Default" />
       <updated>1668582795723</updated>
       <workItem from="1668582797356" duration="1112000" />
-    </task>
-    <task id="LOCAL-00001" summary="web only workflow">
-      <created>1668634947556</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1668634947556</updated>
-    </task>
-    <task id="LOCAL-00002" summary="web only workflow">
-      <created>1668635040066</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1668635040066</updated>
-    </task>
-    <task id="LOCAL-00003" summary="web only workflow">
-      <created>1668635132845</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1668635132845</updated>
-    </task>
-    <task id="LOCAL-00004" summary="docs only workflow">
-      <created>1668635279200</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1668635279200</updated>
-    </task>
-    <task id="LOCAL-00005" summary="setup circle ci config">
-      <created>1668685604982</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1668685604982</updated>
-    </task>
-    <task id="LOCAL-00006" summary="setup circle ci config">
-      <created>1668685689453</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1668685689453</updated>
+      <workItem from="1668750370133" duration="656000" />
+      <workItem from="1668980482974" duration="594000" />
+      <workItem from="1668986480920" duration="3000" />
+      <workItem from="1668990641816" duration="1438000" />
+      <workItem from="1668998628836" duration="4799000" />
+      <workItem from="1669163194428" duration="2622000" />
+      <workItem from="1669180335482" duration="1413000" />
     </task>
     <task id="LOCAL-00007" summary="setup circle ci config">
       <created>1668685727386</created>
@@ -342,7 +306,105 @@
       <option name="project" value="LOCAL" />
       <updated>1668724324469</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="setup docker">
+      <created>1668736906587</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1668736906587</updated>
+    </task>
+    <task id="LOCAL-00043" summary="setup docker">
+      <created>1668737041216</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1668737041216</updated>
+    </task>
+    <task id="LOCAL-00044" summary="setup docker">
+      <created>1668737270745</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1668737270745</updated>
+    </task>
+    <task id="LOCAL-00045" summary="setup docker">
+      <created>1668737341899</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1668737341899</updated>
+    </task>
+    <task id="LOCAL-00046" summary="setup docker">
+      <created>1668737415323</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1668737415323</updated>
+    </task>
+    <task id="LOCAL-00047" summary="setup docker">
+      <created>1668737503649</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1668737503649</updated>
+    </task>
+    <task id="LOCAL-00048" summary="setup docker">
+      <created>1668737586832</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1668737586832</updated>
+    </task>
+    <task id="LOCAL-00049" summary="setup docker">
+      <created>1668737653336</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1668737653336</updated>
+    </task>
+    <task id="LOCAL-00050" summary="setup docker">
+      <created>1668737724026</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1668737724026</updated>
+    </task>
+    <task id="LOCAL-00051" summary="setup docker">
+      <created>1668737903475</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1668737903475</updated>
+    </task>
+    <task id="LOCAL-00052" summary="setup docker">
+      <created>1668738076446</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1668738076446</updated>
+    </task>
+    <task id="LOCAL-00053" summary="setup docker">
+      <created>1669186630277</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1669186630278</updated>
+    </task>
+    <task id="LOCAL-00054" summary="setup docker">
+      <created>1669186847784</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1669186847784</updated>
+    </task>
+    <task id="LOCAL-00055" summary="setup docker">
+      <created>1669186874259</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1669186874259</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -365,6 +427,7 @@
     <MESSAGE value="setup circle ci config" />
     <MESSAGE value="circlci workspace" />
     <MESSAGE value="update ci" />
-    <option name="LAST_COMMIT_MESSAGE" value="update ci" />
+    <MESSAGE value="setup docker" />
+    <option name="LAST_COMMIT_MESSAGE" value="setup docker" />
   </component>
 </project>
