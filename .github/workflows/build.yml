@@ -6,7 +6,7 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
-  sonarcloud WEB:
+  sonarcloudWEB:
     name: SonarCloud WEB
     runs-on: ubuntu-latest
     strategy:
@@ -40,7 +40,7 @@ jobs:
            -Dsonar.typescript.tsconfigPath=tsconfig.json
 
 
-  sonarcloud DOC:
+  sonarcloudDOC:
     name: SonarCloud DOC
     runs-on: ubuntu-latest
     strategy:
