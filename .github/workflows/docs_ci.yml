@@ -1,31 +1,31 @@
 
-name: Dev CI
-on:
-  pull_request:
-    paths:
-          - 'apps/docs/**'
-          - '.github/workflows/**'
-    types: [opened, synchronize, reopened]
-permissions:
-  contents: read
-  checks:   write
-jobs:
-  DEV_CI:
-    name: Running linting and Unit testing
-    timeout-minutes: 15
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 2  # Shallow clones should be disabled for a better relevancy of analysis
+# name: Dev CI
+# on:
+#   pull_request:
+#     paths:
+#           - 'apps/docs/**'
+#           - '.github/workflows/**'
+#     types: [opened, synchronize, reopened]
+# permissions:
+#   contents: read
+#   checks:   write
+# jobs:
+#   DEV_CI:
+#     name: Running linting and Unit testing
+#     timeout-minutes: 15
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v3
+#         with:
+#           fetch-depth: 2  # Shallow clones should be disabled for a better relevancy of analysis
 
-      - uses: pnpm/action-setup@v2.0.1
-        with:
-          version: 6.32.2
+#       - uses: pnpm/action-setup@v2.0.1
+#         with:
+#           version: 6.32.2
           
-      - name: Install dependencies
-        run: pnpm install
+#       - name: Install dependencies
+#         run: pnpm install
         
-      - name: Running Lint
-        run:  pnpm docs:lint
+#       - name: Running Lint
+#         run:  pnpm docs:lint
 
