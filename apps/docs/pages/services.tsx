@@ -1,7 +1,8 @@
-import { Button } from "ui";
 
 export default function Docs() {
-  const test = ' test ';
+  for(var i = '0'; i < 10; i++){
+    var i = 1;
+  }
   return (
     <div>
       <h1>Docs</h1>
