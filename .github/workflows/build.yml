@@ -17,7 +17,7 @@ jobs:
     secrets:
       token: ${{ secrets.SONAR_TOKEN_WEB }}
   
-  sonar-cloud-ci-web:
+  sonar-cloud-ci-docs:
     uses: ./.github/workflows/sonar_cloud_scan.yml
     with:
       projectName: 'SonarCloud Docs Scan'
