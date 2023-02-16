@@ -34,7 +34,8 @@ jobs:
               - 'app/web/**'
 
   sonar-cloud-ci-web:
-    if: steps.changes.outputs.src == 'true'
+    if: needs.watch-file-changed.outputs.src == 'true'
+    needs: watch-file-changed
     uses: ./.github/workflows/sonar_cloud_scan.yml
     with:
       projectName: 'SonarCloud Web Scan'
