@@ -12,6 +12,8 @@ jobs:
   changes:
     name: watch file changed
     runs-on: ubuntu-latest
+    permissions:
+          pull-requests: read
     strategy:
       matrix:
         version: [16.x]
