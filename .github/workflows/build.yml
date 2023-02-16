@@ -9,18 +9,30 @@ on:
       - 'apps/web/**'
     types: [opened, synchronize, reopened]
 jobs:
-  sonar-cloud-ci-web:
-    uses: ./.github/workflows/sonar_cloud_scan.yml
-    with:
-      projectName: 'SonarCloud Web Scan'
-      projectBaseDir: /apps/web
-    secrets:
-      token: ${{ secrets.SONAR_TOKEN_WEB }}
-  
-  sonar-cloud-ci-docs:
-    uses: ./.github/workflows/sonar_cloud_scan.yml
-    with:
-      projectName: 'SonarCloud Docs Scan'
-      projectBaseDir: /apps/docs
-    secrets:
-      token: ${{ secrets.SONAR_TOKEN_DOCS }}
+  watch-file-changed:
+    name: watch file changed
+    runs-on: ubuntu-latest
+  outputs:
+    web: ${{ steps.watch.outputs.changed.web }}
+    docs: ${{ steps.watch.outputs.changed.docs }}
+  steps:
+    name: print changed files
+    run: |
+      echo ${{ steps.watch.outputs.changed.web }}
+      echo ${{ steps.watch.outputs.changed }}
+
+#  sonar-cloud-ci-web:
+#    uses: ./.github/workflows/sonar_cloud_scan.yml
+#    with:
+#      projectName: 'SonarCloud Web Scan'
+#      projectBaseDir: /apps/web
+#    secrets:
+#      token: ${{ secrets.SONAR_TOKEN_WEB }}
+#
+#  sonar-cloud-ci-docs:
+#    uses: ./.github/workflows/sonar_cloud_scan.yml
+#    with:
+#      projectName: 'SonarCloud Docs Scan'
+#      projectBaseDir: /apps/docs
+#    secrets:
+#      token: ${{ secrets.SONAR_TOKEN_DOCS }}
