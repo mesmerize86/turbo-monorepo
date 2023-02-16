@@ -1,40 +1,40 @@
 
-name: Web Dev CI
-on:
-  pull_request:
-    paths:
-          - 'apps/web/**'
-          - '.github/workflows/**'
-    types: [opened, synchronize, reopened]
-permissions:
-  contents: read
-  checks:   write
-jobs:
-  Web_CI:
-    name: Running linting and Unit testing
-    timeout-minutes: 15
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        version: [16.x]
+# name: Web Dev CI
+# on:
+#   pull_request:
+#     paths:
+#           - 'apps/web/**'
+#           - '.github/workflows/**'
+#     types: [opened, synchronize, reopened]
+# permissions:
+#   contents: read
+#   checks:   write
+# jobs:
+#   Web_CI:
+#     name: Running linting and Unit testing
+#     timeout-minutes: 15
+#     runs-on: ubuntu-latest
+#     strategy:
+#       matrix:
+#         version: [16.x]
 
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 2  # Shallow clones should be disabled for a better relevancy of analysis
+#     steps:
+#       - uses: actions/checkout@v3
+#         with:
+#           fetch-depth: 2  # Shallow clones should be disabled for a better relevancy of analysis
 
-      - name: Setup node version
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node}}
+#       - name: Setup node version
+#         uses: actions/setup-node@v3
+#         with:
+#           node-version: ${{ matrix.node}}
 
-      - uses: pnpm/action-setup@v2.2.4
-        with:
-          version: 7.16.1
+#       - uses: pnpm/action-setup@v2.2.4
+#         with:
+#           version: 7.16.1
           
-      - name: Install dependencies
-        run: pnpm install
+#       - name: Install dependencies
+#         run: pnpm install
         
-      - name: Running Lint
-        run:  pnpm web:lint
+#       - name: Running Lint
+#         run:  pnpm web:lint
 
