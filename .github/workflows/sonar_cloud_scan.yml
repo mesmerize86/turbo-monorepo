@@ -1,0 +1,58 @@
+name: sonar-cloud-ci
+on:
+  workflow_call:
+    inputs:
+      projectName:
+        description: 'SonarCloud Scan'
+        default: 'SonarCloud Scan'
+        required: true
+        type: string
+      projectBaseDir:
+        description: 'Base directory of the project'
+        required: true
+        type: string
+    secrets:
+      token:
+        required: true
+
+jobs:
+  SonarCloudScan:
+    name: SonarCloud Scan
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        version: [16.x]
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup node version
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node}}
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
+
+      - name: Restore yarn cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-cache-folder-${{ github.base_ref || inputs.github_base_ref }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-cache-folder-
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: ${{ inputs.projectName }}
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.token }}
+        with:
+          projectBaseDir: ${{github.workspace}}${{ inputs.projectBaseDir }}

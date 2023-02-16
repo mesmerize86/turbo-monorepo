@@ -2,7 +2,7 @@ name: Build
 on:
   push:
     branches:
-      - main
+      - develop
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
@@ -13,7 +13,6 @@ jobs:
       matrix:
         version: [16.x]
     steps:
-
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
@@ -66,3 +65,31 @@ jobs:
            -Dsonar.projectKey=mesmerize86_docs
            -Dsonar.sources=.
            -Dsonar.typescript.tsconfigPath=tsconfig.json
+
+
+name: code-analysis
+on:
+  push:
+    branches:
+      - develop
+  pull_request:
+    paths:
+      - 'apps/docs/**'
+      - 'apps/web/**'
+    types: [opened, synchronize, reopened]
+jobs:
+  sonar-cloud-ci-web:
+    uses: ./.github/workflows/sonar_cloud_scan.yml
+    with:
+      projectName: 'SonarCloud Web Scan'
+      projectBaseDir: /apps/web
+    secrets:
+      token: ${{ secrets.SONAR_TOKEN_WEB }}
+  
+  sonar-cloud-ci-web:
+    uses: ./.github/workflows/sonar_cloud_scan.yml
+    with:
+      projectName: 'SonarCloud Docs Scan'
+      projectBaseDir: /apps/docs
+    secrets:
+      token: ${{ secrets.SONAR_TOKEN_DOCS }}
