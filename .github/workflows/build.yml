@@ -21,10 +21,19 @@ jobs:
   watch-file-changed:
     name: watch file changed
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        version: [16.x]
+
     outputs:
       web: ${{ steps.watch.outputs.changed.web }}
       docs: ${{ steps.watch.outputs.changed.docs }}
     steps:
+      - name: Setup node version
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node}}
+
       - name: Filter Paths
         uses: dorny/paths-filter@v2
         id: changes
