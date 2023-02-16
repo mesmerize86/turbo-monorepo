@@ -37,7 +37,7 @@ jobs:
         with:
           filters: |
             web:
-              - 'app/web/**'
+              - 'apps/web/**'
 
   sonar-cloud-ci-web:
     needs: watch-file-changed
