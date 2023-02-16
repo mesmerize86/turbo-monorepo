@@ -18,7 +18,7 @@ jobs:
     # Set job outputs to values from filter step
     outputs:
       web: ${{ steps.filter.outputs.web }}
-      frontend: ${{ steps.filter.outputs.frontend }}
+      docs: ${{ steps.filter.outputs.docs }}
     steps:
     # For pull requests it's not necessary to checkout the code
     - uses: dorny/paths-filter@v2
@@ -27,7 +27,7 @@ jobs:
         filters: |
           web:
             - 'apps/web/**'
-          frontend:
+          docs:
             - 'frontend/**'
 
   # JOB to build and test backend code
@@ -39,7 +39,24 @@ jobs:
       - run: |
           echo "output: ${{ needs.changes.outputs.web }}"
 
+  sonar-cloud-ci-web:
+    needs: changes
+    if: ${{ needs.changes.outputs.web == 'true' }}
+    uses: ./.github/workflows/sonar_cloud_scan.yml
+    with:
+      projectName: 'SonarCloud Web Scan'
+      projectBaseDir: /apps/web
+    secrets:
+      token: ${{ secrets.SONAR_TOKEN_WEB }}
 
+  sonar-cloud-ci-docs:
+    needs: changes
+    uses: ./.github/workflows/sonar_cloud_scan.yml
+    with:
+      projectName: 'SonarCloud Docs Scan'
+      projectBaseDir: /apps/docs
+    secrets:
+      token: ${{ secrets.SONAR_TOKEN_DOCS }}
 
 #  changes:
 #    name: watch file changed
