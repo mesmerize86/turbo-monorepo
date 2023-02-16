@@ -24,27 +24,24 @@ jobs:
     strategy:
       matrix:
         version: [16.x]
-
     outputs:
-      web: ${{ steps.watch.outputs.changed.web }}
-      docs: ${{ steps.watch.outputs.changed.docs }}
+      web: ${{ steps.filter.outputs.web }}
     steps:
       - name: Setup node version
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node}}
-
       - name: Filter Paths
         uses: dorny/paths-filter@v2
         id: changes
         with:
           filters: |
-            src:
+            web:
               - 'app/web/**'
 
   sonar-cloud-ci-web:
-    if: needs.watch-file-changed.outputs.src == 'true'
     needs: watch-file-changed
+    if: needs.watch-file-changed.outputs.web == 'true'
     uses: ./.github/workflows/sonar_cloud_scan.yml
     with:
       projectName: 'SonarCloud Web Scan'
