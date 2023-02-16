@@ -39,9 +39,7 @@ jobs:
     needs: changes
     steps:
       - run: echo ${{ needs.changes.outputs.web }}
-      - run: echo ${{ steps.changes.outputs.web }}
 
-    needs: changes
     if: ${{ needs.changes.outputs.web == 'true' }}
     uses: ./.github/workflows/sonar_cloud_scan.yml
     with:
