@@ -47,7 +47,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: watch-file-changed
     steps:
-      - run : echo ${{ needs.watch-file-changed.outputs.web }}
+      - run : echo ${{ needs.watch-file-changed }}
 #    if: ${{ needs.watch-file-changed.outputs.web == 'true' }}
 #    needs: watch-file-changed
 #    uses: ./.github/workflows/sonar_cloud_scan.yml
