@@ -44,16 +44,20 @@ jobs:
           echo "event: ${{ steps.changes.outputs.web }}"
 
   sonar-cloud-ci-web:
-    run: |
-      echo "event: ${{ steps.changes.outputs.web }}"
-    if: ${{needs.watch-file-changed.outputs.web == 'true'}}
     needs: watch-file-changed
-    uses: ./.github/workflows/sonar_cloud_scan.yml
-    with:
-      projectName: 'SonarCloud Web Scan'
-      projectBaseDir: /apps/web
-    secrets:
-      token: ${{ secrets.SONAR_TOKEN_WEB }}
+    steps:
+      - run : echo ${{ needs.watch-file-changed.outputs.web }}
+#    if: ${{ needs.watch-file-changed.outputs.web == 'true' }}
+#    needs: watch-file-changed
+#    uses: ./.github/workflows/sonar_cloud_scan.yml
+#    with:
+#      projectName: 'SonarCloud Web Scan'
+#      projectBaseDir: /apps/web
+#    secrets:
+#      token: ${{ secrets.SONAR_TOKEN_WEB }}
+#    steps:
+#      run: |
+#        echo "event: ${{ steps.changes.outputs.web }}"
 #
 #  sonar-cloud-ci-docs:
 #    uses: ./.github/workflows/sonar_cloud_scan.yml
