@@ -51,6 +51,7 @@ jobs:
 
   sonar-cloud-ci-docs:
     needs: changes
+    if: ${{ needs.changes.outputs.docs == 'true' }}
     uses: ./.github/workflows/sonar_cloud_scan.yml
     with:
       projectName: 'SonarCloud Docs Scan'
