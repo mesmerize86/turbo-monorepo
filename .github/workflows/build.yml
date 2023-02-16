@@ -37,15 +37,12 @@ jobs:
   sonar-cloud-ci-web:
     needs: changes
     if: ${{ needs.changes.outputs.web == 'true' }}
-      uses: ./.github/workflows/sonar_cloud_scan.yml
-      with:
-        projectName: 'SonarCloud Web Scan'
-        projectBaseDir: /apps/web
-      secrets:
-        token: ${{ secrets.SONAR_TOKEN_WEB }}
-      steps:
-        run: |
-          echo "event: ${{ steps.changes.outputs.web }}"
+    uses: ./.github/workflows/sonar_cloud_scan.yml
+    with:
+      projectName: 'SonarCloud Web Scan'
+      projectBaseDir: /apps/web
+    secrets:
+      token: ${{ secrets.SONAR_TOKEN_WEB }}
 #
 #  sonar-cloud-ci-docs:
 #    uses: ./.github/workflows/sonar_cloud_scan.yml
