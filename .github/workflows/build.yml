@@ -39,8 +39,12 @@ jobs:
             web:
               - 'apps/web/**'
 
+      - name: Print Inputs
+        run: |
+          echo "event: ${{ steps.changes.outputs.web }}"
+
   sonar-cloud-ci-web:
-    if: needs.watch-file-changed.outputs.web == true
+    if: ${{needs.watch-file-changed.outputs.web == 'true'}}
     needs: watch-file-changed
     uses: ./.github/workflows/sonar_cloud_scan.yml
     with:
