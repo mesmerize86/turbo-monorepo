@@ -9,50 +9,99 @@ on:
 #      - 'apps/web/**'
     types: [opened, synchronize, reopened]
 jobs:
-#  test-print-github:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Print Inputs
-#        run: |
-#          echo "event path: ${{ steps.watch.outputs.changed }}"
-#          echo "web : ${{ steps.watch.outputs.changed.web }}"
-
-
-  watch-file-changed:
-    name: watch file changed
+ # JOB to run change detection
+  changes:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        version: [16.x]
+    # Required permissions
+    permissions:
+      pull-requests: read
+    # Set job outputs to values from filter step
     outputs:
       web: ${{ steps.filter.outputs.web }}
+      docs: ${{ steps.filter.outputs.docs }}
     steps:
-      - name: Setup node version
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node}}
-      - name: Filter Paths
-        uses: dorny/paths-filter@v2
-        id: changes
-        with:
-          filters: |
-            web:
-              - 'app/web/**'
+    # For pull requests it's not necessary to checkout the code
+    - uses: dorny/paths-filter@v2
+      id: filter
+      with:
+        filters: |
+          web:
+            - 'apps/web/**'
+          docs:
+            - 'frontend/**'
+
+  # JOB to build and test backend code
+  backend:
+    needs: changes
+    if: ${{ needs.changes.outputs.web == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "output: ${{ needs.changes.outputs.web }}"
 
   sonar-cloud-ci-web:
-    needs: watch-file-changed
-    if: needs.watch-file-changed.outputs.web == 'true'
+    needs: changes
+    if: ${{ needs.changes.outputs.web == 'true' }}
     uses: ./.github/workflows/sonar_cloud_scan.yml
     with:
       projectName: 'SonarCloud Web Scan'
       projectBaseDir: /apps/web
     secrets:
       token: ${{ secrets.SONAR_TOKEN_WEB }}
+
+  sonar-cloud-ci-docs:
+    needs: changes
+    if: ${{ needs.changes.outputs.docs == 'true' }}
+    uses: ./.github/workflows/sonar_cloud_scan.yml
+    with:
+      projectName: 'SonarCloud Docs Scan'
+      projectBaseDir: /apps/docs
+    secrets:
+      token: ${{ secrets.SONAR_TOKEN_DOCS }}
+
+#  changes:
+#    name: watch file changed
+#    runs-on: ubuntu-latest
+#    permissions:
+#          pull-requests: read
+#    strategy:
+#      matrix:
+#        version: [16.x]
+#    outputs:
+#      web: ${{ steps.filter.outputs.web }}
+#    steps:
+#      - name: Filter Paths
+#        uses: dorny/paths-filter@v2
+#        id: changes
+#        with:
+#          filters: |
+#            web:
+#              - 'apps/web/**'
 #
-#  sonar-cloud-ci-docs:
-#    uses: ./.github/workflows/sonar_cloud_scan.yml
-#    with:
-#      projectName: 'SonarCloud Docs Scan'
-#      projectBaseDir: /apps/docs
-#    secrets:
-#      token: ${{ secrets.SONAR_TOKEN_DOCS }}
+#      - name: Print Inputs
+#        run: |
+#          echo "event: ${{ steps.changes.outputs.web }}"
+#
+#  sonar-cloud-ci-web:
+#    runs-on: ubuntu-latest
+#    needs: changes
+#    steps:
+#      - run: |
+#          echo "output: ${{ needs.changes.outputs.web }}"
+#          echo "path: ${{ steps.changes.outputs.web }}"
+#
+##    if: ${{ needs.changes.outputs.web == 'true' }}
+##    uses: ./.github/workflows/sonar_cloud_scan.yml
+##    with:
+##      projectName: 'SonarCloud Web Scan'
+##      projectBaseDir: /apps/web
+##    secrets:
+##      token: ${{ secrets.SONAR_TOKEN_WEB }}
+##
+##  sonar-cloud-ci-docs:
+##    uses: ./.github/workflows/sonar_cloud_scan.yml
+##    with:
+##      projectName: 'SonarCloud Docs Scan'
+##      projectBaseDir: /apps/docs
+##    secrets:
+##      token: ${{ secrets.SONAR_TOKEN_DOCS }}
