@@ -1,10 +1,9 @@
-name: code-analysis
+name: merge_branch_code_anaylsis
 on:
   push:
     branches:
       - develop
-  pull_request:
-    types: [opened, synchronize, reopened]
+
 jobs:
  # JOB to run change detection
   changes:
@@ -35,23 +34,3 @@ jobs:
     steps:
       - run: |
           echo "output: ${{ needs.changes.outputs.web }}"
-
-  sonar-cloud-ci-web:
-    needs: changes
-    if: ${{ needs.changes.outputs.web == 'true' }}
-    uses: ./.github/workflows/sonar_cloud_scan.yml
-    with:
-      projectName: 'SonarCloud Web Scan'
-      projectBaseDir: /apps/web
-    secrets:
-      token: ${{ secrets.SONAR_TOKEN_WEB }}
-
-  sonar-cloud-ci-docs:
-    needs: changes
-    if: ${{ needs.changes.outputs.docs == 'true' }}
-    uses: ./.github/workflows/sonar_cloud_scan.yml
-    with:
-      projectName: 'SonarCloud Docs Scan'
-      projectBaseDir: /apps/docs
-    secrets:
-      token: ${{ secrets.SONAR_TOKEN_DOCS }}
