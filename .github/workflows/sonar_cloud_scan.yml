@@ -19,15 +19,6 @@ jobs:
   SonarCloudScan:
     name: SonarCloud Scan
     runs-on: ubuntu-latest
-    # Required permissions
-    permissions:
-      pull-requests: read
-
-    # Set job outputs to values from filter step
-    outputs:
-      web: ${{ steps.filter.outputs.web }}
-      docs: ${{ steps.filter.outputs.docs }}
-
     strategy:
       matrix:
         version: [16.x]
@@ -43,22 +34,7 @@ jobs:
         with:
           node-version: ${{ matrix.node}}
 
-      - uses: dorny/paths-filter@v2
-        id: filter
-        with:
-          filters: |
-            web:
-              - 'apps/web/**'
-            docs:
-              - 'frontend/**'
-
-      - name: print path name
-        run: |
-          echo "web: ${{ steps.filter.outputs.web }}"
-          echo "docs: ${{ steps.filter.outputs.docs }}"
-
       - name: ${{ inputs.projectName }}
-        if: steps.filter.outputs.web == 'true' || steps.filter.outputs.docs == 'true'
         uses: SonarSource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any

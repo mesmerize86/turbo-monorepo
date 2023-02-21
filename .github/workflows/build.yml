@@ -6,7 +6,60 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
+ # JOB to run change detection
+  changes:
+    runs-on: ubuntu-latest
+    # Required permissions
+    permissions:
+      pull-requests: read
+    # Set job outputs to values from filter step
+    outputs:
+      web: ${{ steps.filter.outputs.web }}
+      docs: ${{ steps.filter.outputs.docs }}
+
+    strategy:
+      matrix:
+        version: [16.x]
+
+    steps:
+    - name: Print Event
+      run: |
+        echo "output: ${{ github.event_name }}"
+
+    - if: ${{ github.event_name == 'push' }}
+      name: Checkout repo
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - if: ${{ github.event_name == 'push' }}
+      name: Setup node version
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node}}
+
+    # For pull requests it's not necessary to checkout the code
+    - uses: dorny/paths-filter@v2
+      id: filter
+      with:
+        filters: |
+          web:
+            - 'apps/web/**'
+          docs:
+            - 'frontend/**'
+
+  # JOB to build and test backend code
+  backend:
+    needs: changes
+    if: ${{ needs.changes.outputs.web == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "output: ${{ needs.changes.outputs.web }}"
+
   sonar-cloud-ci-web:
+    needs: changes
+    if: ${{ needs.changes.outputs.web == 'true' }}
     uses: ./.github/workflows/sonar_cloud_scan.yml
     with:
       projectName: 'SonarCloud Web Scan'
@@ -15,6 +68,8 @@ jobs:
       token: ${{ secrets.SONAR_TOKEN_WEB }}
 
   sonar-cloud-ci-docs:
+    needs: changes
+    if: ${{ needs.changes.outputs.docs == 'true' }}
     uses: ./.github/workflows/sonar_cloud_scan.yml
     with:
       projectName: 'SonarCloud Docs Scan'
