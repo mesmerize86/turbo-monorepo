@@ -58,7 +58,16 @@ jobs:
           echo "docs: ${{ steps.filter.outputs.docs }}"
 
       - name: ${{ inputs.projectName }}
-        if: steps.filter.outputs.web == 'true' || steps.filter.outputs.docs == 'true'
+        if: steps.filter.outputs.web == 'true'
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.token }}
+        with:
+          projectBaseDir: ${{github.workspace}}${{ inputs.projectBaseDir }}
+
+      - name: ${{ inputs.projectName }}
+        if: steps.filter.outputs.docs == 'true'
         uses: SonarSource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
