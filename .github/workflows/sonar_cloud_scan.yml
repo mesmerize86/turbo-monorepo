@@ -53,9 +53,9 @@ jobs:
               - 'frontend/**'
 
       - name: print path name
-        - run: |
-            echo "web: ${{ steps.filter.outputs.web }}"
-            echo "docs: ${{ steps.filter.outputs.docs }}"
+        run: |
+          echo "web: ${{ steps.filter.outputs.web }}"
+          echo "docs: ${{ steps.filter.outputs.docs }}"
 
       - name: ${{ inputs.projectName }}
         if: steps.filter.outputs.web == 'true' || steps.filter.outputs.docs == 'true'
