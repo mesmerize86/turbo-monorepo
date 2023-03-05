@@ -2,7 +2,7 @@ import { Button } from "ui";
 
 export default function About() {
 
-  const returnTypeFunction = (param1:boolean, param2:boolean)=> {
+  const returnTypeFunction = (param1:boolean, param2:boolean): string | undefined=> {
     if(param1 && param2){
       return 'param1 and param2 are true'
     }
