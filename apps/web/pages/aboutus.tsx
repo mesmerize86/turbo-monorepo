@@ -6,7 +6,6 @@ export default function About() {
     if(param1 && param2){
       return 'param1 and param2 are true'
     }
-    return '';
   }
 
   returnTypeFunction(true , true);
