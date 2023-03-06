@@ -19,7 +19,7 @@ export default function About() {
       <h1>Web</h1>
       <Button />
     </div>
-    {age && {age}}
+    {!!age && {age}}
     </>
   );
 }
