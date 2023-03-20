@@ -24,6 +24,9 @@ jobs:
         version: [16.x]
 
     steps:
+      - name: show name
+        run: echo ${{ github.github_base_ref }}
+        
       - name: Checkout repo
         uses: actions/checkout@v3
         with:
