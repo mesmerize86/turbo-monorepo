@@ -25,7 +25,7 @@ jobs:
 
     steps:
       - name: show name
-        run: echo '${{ github.base_ref }}'
+        run: echo "$GITHUB_BASE_REF"
 
       - name: Checkout repo
         uses: actions/checkout@v3
